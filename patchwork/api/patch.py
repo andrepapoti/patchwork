@@ -428,7 +428,7 @@ class PatchDetailPermission(PatchworkPermission):
         if 'planning_to_review' in data:
             for review_data in data:
                 user_id = review_data['user']
-                if request.user.id == reviewing_user:
+                if request.user.id == user_id:
                     return True
             detail = "Only the user can declare it's own intention to reviewing a patch"
             raise PermissionDenied(detail=detail)
